@@ -98,6 +98,7 @@
                 x:Name="txtBill"
                 Grid.Column="1"
                 BackgroundColor="{StaticResource SectionColor}"
+                Completed="txtBill_Completed"
                 Keyboard="Numeric"
                 Text="0.0"
                 TextColor="{StaticResource LightFont}"
@@ -171,7 +172,7 @@
                     TextColor="{StaticResource LightFont}"
                     VerticalOptions="Center"
                     VerticalTextAlignment="Center"
-                    WidthRequest="60" />
+                    WidthRequest="70" />
                 <Button
                     x:Name="btnPluse"
                     FontSize="25"
