@@ -148,6 +148,37 @@
                 Grid.Row="3"
                 Text="Split the total"
                 TextColor="{StaticResource LightFont}" />
+            <HorizontalStackLayout
+                Grid.Row="2"
+                Grid.RowSpan="3"
+                Grid.Column="3"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Button
+                    x:Name="btnMinus"
+                    FontSize="25"
+                    Text="-"
+                    WidthRequest="60" />
+                <Label
+                    x:Name="lblNoPerson"
+                    Margin="-1,0,0,-1"
+                    BackgroundColor="{StaticResource SectionColor}"
+                    FontSize="25"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="1"
+                    TextColor="{StaticResource LightFont}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    WidthRequest="60" />
+                <Button
+                    x:Name="btnPluse"
+                    FontSize="25"
+                    Text="-"
+                    WidthRequest="60" />
+            </HorizontalStackLayout>
+
         </Grid>
     </Grid>
 </ContentPage>
