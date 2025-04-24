@@ -125,13 +125,13 @@
                     WidthRequest="60" />
                 <Button
                     x:Name="btn15"
-                    Clicked="btn15_Clicked"
+                    Clicked="Button_Clicked"
                     HeightRequest="60"
                     Text="15%"
                     WidthRequest="60" />
                 <Button
                     x:Name="btn20"
-                    Clicked="btn20_Clicked"
+                    Clicked="Button_Clicked"
                     HeightRequest="60"
                     Text="20%"
                     WidthRequest="60" />

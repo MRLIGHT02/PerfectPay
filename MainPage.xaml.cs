@@ -27,23 +27,22 @@ public partial class MainPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
         {
-        sldTip.Value = 10;
+        if(sender is Button)
+            {
+            var btn= (Button)sender;
+            var percentage = int.Parse(btn.Text.Replace("%", ""));
+            sldTip.Value = percentage;
+            }
+         
             
         }
 
 
-    private void btn15_Clicked(object sender, EventArgs e)
-        {
-        sldTip.Value = 15;
-        }
-
-    private void btn20_Clicked(object sender, EventArgs e)
-        {
-        sldTip.Value = 20;
-        }
+   
     private void sldTip_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
+        Tip = (int)sldTip.Value;
+        lblTip.Text = $"Tip: {Tip}%";
         CalculateTotall();
         }
     private void btnMinus_Clicked(object sender, EventArgs e)
