@@ -125,13 +125,13 @@
                     WidthRequest="60" />
                 <Button
                     x:Name="btn15"
-                    Clicked="Button_Clicked"
+                    Clicked="btn15_Clicked"
                     HeightRequest="60"
                     Text="15%"
                     WidthRequest="60" />
                 <Button
                     x:Name="btn20"
-                    Clicked="Button_Clicked"
+                    Clicked="btn20_Clicked"
                     HeightRequest="60"
                     Text="20%"
                     WidthRequest="60" />
@@ -164,6 +164,7 @@
                 VerticalOptions="Center">
                 <Button
                     x:Name="btnMinus"
+                    Clicked="btnMinus_Clicked"
                     FontSize="25"
                     Text="-"
                     WidthRequest="60" />
@@ -182,8 +183,9 @@
                     WidthRequest="70" />
                 <Button
                     x:Name="btnPluse"
+                    Clicked="btnPluse_Clicked"
                     FontSize="25"
-                    Text="-"
+                    Text="+"
                     WidthRequest="60" />
             </HorizontalStackLayout>
 
