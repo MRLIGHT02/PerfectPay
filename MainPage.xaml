@@ -117,30 +117,44 @@
                 HorizontalOptions="Center"
                 Spacing="10"
                 WidthRequest="70">
-                <Button
+                <!--<Button
                     x:Name="btn10"
-                    Clicked="Button_Clicked"
+                    Clicked="btn10_Clicked"
                     HeightRequest="60"
-                    Text="10"
+                    Text="10%"
                     WidthRequest="60" />
                 <Button
                     x:Name="btn15"
-                    Clicked="Button_Clicked"
+                    Clicked="btn10_Clicked"
                     HeightRequest="60"
-                    Text="15"
+                    Text="15%"
                     WidthRequest="60" />
                 <Button
                     x:Name="btn20"
-                    Clicked="Button_Clicked"
+                    Clicked="btn10_Clicked"
                     HeightRequest="60"
-                    Text="20"
-                    WidthRequest="60" />
+                    Text="20%"
+                    WidthRequest="60" />-->
+                <Button
+                    Clicked="btn10_Clicked"
+                    CommandParameter="10"
+                    Text="10%" />
+                <Button
+                    Clicked="btn10_Clicked"
+                    CommandParameter="15"
+                    Text="15%" />
+                <Button
+                    Clicked="btn10_Clicked"
+                    CommandParameter="20"
+                    Text="20%" />
+
             </HorizontalStackLayout>
             <Label
                 x:Name="lblTip"
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="0"
+                InputTransparent="True"
                 Text="Tip: 0%"
                 TextColor="{StaticResource LightFont}" />
 
@@ -149,7 +163,7 @@
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Grid.Column="1"
-                Maximum="100"
+                Maximum="50"
                 Minimum="0"
                 ValueChanged="sldTip_ValueChanged" />
             <Label

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿
+using System.Diagnostics;
 
 namespace PerfectPay;
 
@@ -27,19 +28,7 @@ public partial class MainPage : ContentPage
         }
 
 
-    private void Button_Clicked(object sender, EventArgs e)
-        {
-        if (sender is Button btn)
-            {
-            var percentage = int.Parse(btn.Text);
-            sldTip.Value = percentage;
-            Console.WriteLine(percentage);
-            Debug.WriteLine(percentage);
-
-          
-            }
-        }
-
+    
     private void sldTip_ValueChanged(object sender, ValueChangedEventArgs e)
         {
         Tip = (int)sldTip.Value;
@@ -78,5 +67,18 @@ public partial class MainPage : ContentPage
         lblTipbyPerson.Text = $"${(tipAmount / NoOfPerson):F2}";
         lblTotal.Text = $"${totalPerPerson:F2}";
         }
+
+    private void btn10_Clicked(object sender, EventArgs e)
+        {
+        if(sender is Button)
+            {
+            var btn = (Button)sender;
+            var paramenter = Convert.ToInt64(btn.CommandParameter);
+            sldTip.Value = paramenter;
+            }
+        }
+
+
+
 
     }
