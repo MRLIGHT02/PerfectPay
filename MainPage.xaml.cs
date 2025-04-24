@@ -33,9 +33,22 @@ public partial class MainPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
         {
-
+        if (sender is Button btn)
+            {
+            if (int.TryParse(btn.Text.Replace("%", ""), out int percentage))
+                {
+                Console.WriteLine(percentage);
+                sldTip.Value = percentage;
+                }
+            else
+                {
+                sldTip.Value = 0;
+                }
+            }
         }
 
-  
+
+
+
     }
 
