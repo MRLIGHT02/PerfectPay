@@ -14,7 +14,28 @@ public partial class MainPage : ContentPage
 
     private void txtBill_Completed(object sender, EventArgs e)
         {
+		Bill = decimal.Parse(txtBill.Text);
+		CalculateTotall();
+
+        
+		}
+	private void CalculateTotall()
+		{
+
+		}
+
+    private void sldTip_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+		Tip = (int)sldTip.Value;
+		lblTip.Text = $"Tip: {Tip}%";
+		CalculateTotall(); 
+        }
+
+    private void Button_Clicked(object sender, EventArgs e)
+        {
 
         }
+
+  
     }
 

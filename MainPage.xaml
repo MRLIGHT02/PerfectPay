@@ -118,14 +118,17 @@
                 Spacing="10"
                 WidthRequest="70">
                 <Button
+                    Clicked="Button_Clicked"
                     HeightRequest="60"
                     Text="10%"
                     WidthRequest="60" />
                 <Button
+                    Clicked="Button_Clicked"
                     HeightRequest="60"
                     Text="15%"
                     WidthRequest="60" />
                 <Button
+                    Clicked="Button_Clicked"
                     HeightRequest="60"
                     Text="20%"
                     WidthRequest="60" />
@@ -144,7 +147,8 @@
                 Grid.RowSpan="2"
                 Grid.Column="1"
                 Maximum="50"
-                Minimum="0" />
+                Minimum="0"
+                ValueChanged="sldTip_ValueChanged" />
             <Label
                 Grid.Row="3"
                 Text="Split the total"
