@@ -1,13 +1,10 @@
-﻿
-using System.Diagnostics;
-
-namespace PerfectPay;
+﻿namespace PerfectPay;
 
 public partial class MainPage : ContentPage
     {
-    public decimal Bill { get; set; }
-    public int Tip { get; set; }
-    public int NoOfPerson { get; set; } = 1;
+    decimal bill;
+    int tip;
+    int noPersons = 1;
 
     public MainPage()
         {
@@ -16,69 +13,63 @@ public partial class MainPage : ContentPage
 
     private void txtBill_Completed(object sender, EventArgs e)
         {
-        if (decimal.TryParse(txtBill.Text, out decimal bill))
-            {
-            Bill = bill;
-            CalculateTotall();
-            }
-        else
-            {
-            Bill = 0;
-            }
+        bill = decimal.Parse(txtBill.Text);
+        CalculateTotal();
         }
 
+    private void CalculateTotal()
+        {
+        //Total tip
+        var totalTip =
+             (bill * tip) / 100;
 
-    
+        //Tip by person
+        var tipByPerson = (totalTip / noPersons);
+        lblTipByPerson.Text = $"{tipByPerson:C}";
+
+        //Subtotal
+        var subtotal = (bill / noPersons);
+        lblSubtotal.Text = $"{subtotal:C}";
+
+        //Total
+        var totalByPerson =
+             (bill + totalTip) / noPersons;
+        lblTotal.Text = $"{totalByPerson:C}";
+        }
+
     private void sldTip_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-        Tip = (int)sldTip.Value;
-        lblTip.Text = $"Tip: {Tip}%";
-        CalculateTotall();
+        tip = (int)sldTip.Value;
+        lblTip.Text = $"Tip: {tip}%";
+        CalculateTotal();
         }
 
-   
-    private void btnMinus_Clicked(object sender, EventArgs e)
+    private void Button_Clicked(object sender, EventArgs e)
         {
-        if (NoOfPerson > 1)
-            {
-            NoOfPerson--;
-            lblNoPerson.Text = NoOfPerson.ToString();
-            CalculateTotall();
-            }
-        }
-
-    private void btnPluse_Clicked(object sender, EventArgs e)
-        {
-        NoOfPerson++;
-        lblNoPerson.Text = NoOfPerson.ToString();
-        CalculateTotall();
-        }
-
-    private void CalculateTotall()
-        {
-        if (Bill <= 0 || NoOfPerson <= 0)
-            return;
-
-        decimal tipAmount = Bill * Tip / 100m;
-        decimal subtotal = Bill + tipAmount;
-        decimal totalPerPerson = subtotal / NoOfPerson;
-
-        lblSubtotal.Text = $"${Bill:F2}";
-        lblTipbyPerson.Text = $"${(tipAmount / NoOfPerson):F2}";
-        lblTotal.Text = $"${totalPerPerson:F2}";
-        }
-
-    private void btn10_Clicked(object sender, EventArgs e)
-        {
-        if(sender is Button)
+        if (sender is Button)
             {
             var btn = (Button)sender;
-            var paramenter = Convert.ToInt64(btn.CommandParameter);
-            sldTip.Value = paramenter;
+            var percentage =
+                 int.Parse(btn.Text.Replace("%", ""));
+            sldTip.Value = percentage;
             }
         }
 
+    private void btnMinus_Clicked(object sender, EventArgs e)
+        {
+        if (noPersons > 1)
+            {
+            noPersons--;
+            }
+        lblNoPerons.Text = noPersons.ToString();
+        CalculateTotal();
+        }
 
-
-
+    private void btnPlus_Clicked(object sender, EventArgs e)
+        {
+        noPersons++;
+        lblNoPerons.Text = noPersons.ToString();
+        CalculateTotal();
+        }
     }
+
